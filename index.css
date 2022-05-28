@@ -85,7 +85,7 @@
     border-radius: 2px;
     display: flex;
     justify-content: center;
-    margin-bottom: 36px;
+    margin-bottom: 34px;
 }
 
 .profile__cross-image {
@@ -93,7 +93,56 @@
 
 }
 
+.gallery {
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 282px;
+    justify-content: center;
+    row-gap: 20px;
+}
 
+.gallery__card {
+    list-style: none;
+    border-radius: 10px;
+    overflow: hidden;
+    line-height: 0;
+}
+
+.gallery__image {
+    width: 100%;
+}
+
+.gallery__caption {
+    background-color: #fff;
+    height: 79px;
+    display: flex;
+    justify-content: center;
+}
+
+.gallery__name {
+    display: flex;
+    width: 240px;
+    justify-content: space-between;
+}
+
+.gallery__text {
+    font-weight: 900;
+    font-size: 24px;
+    line-height: 29px;
+    /* Чтобы длинный текст не налезал на лайк ограничим макс ширину */
+    max-width: 210px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.gallery__like_disabled {
+    background-image: url(./images/galley-like_disabled.svg);
+    background-repeat: no-repeat;
+    width: 22px;
+    background-position: center;
+}
 
 
 
