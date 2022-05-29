@@ -223,7 +223,7 @@
     margin-bottom: 68px;
 }
 
-.popop__input {
+.popup__input {
     width: 100%;
     border: none;
     border-bottom: 1px solid #00000020;
@@ -233,11 +233,11 @@
     padding: 0;
 }
 
-.popop__input:first-of-type {
+.popup__input:first-of-type {
     margin-bottom: 23px;
 }
 
-.popop__input:focus {
+.popup__input:focus {
     outline: none;
     border-bottom: 1px solid #00000020;
     font-weight: 400;
