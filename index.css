@@ -73,6 +73,10 @@
     padding: 0;
 }
 
+.profile__edit-button:hover {
+    opacity: 0.6;
+}
+
 .profile__job {
     font-weight: 400;
     font-size: 14px;
@@ -92,6 +96,10 @@
     background-repeat: no-repeat;
     background-position: center;
     background-size: 16px;
+}
+
+.profile__add-button:hover {
+    opacity: 0.6;
 }
 
 .profile__cross-image {
@@ -162,7 +170,6 @@
 
 .popup {
     position: fixed;
-    display: flex;
     justify-content: center;
     align-items: center;
     top: 0;
@@ -170,7 +177,12 @@
     width: 100vw;
     height: 100vh;
     z-index: 2;
-    background: #00000080
+    background: #00000080;
+    display: none;
+}
+
+.popup_opend {
+    display: flex;
 }
 
 .popup__close-button {
@@ -184,6 +196,10 @@
     background-image: url(./images/popup-close-button.svg);
     background-repeat: no-repeat;
     background-size: 20px;
+}
+
+.popup__close-button:hover {
+    opacity: 0.6;
 }
 
 .popup__container {
@@ -241,6 +257,10 @@
     font-size: 14px;
     line-height: 17px;
     color: #fff;
+}
+
+.popup__submit:hover {
+    opacity: 0.8;
 }
 
 
