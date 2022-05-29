@@ -44,11 +44,7 @@
 }
 
 .profile__name-container {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 7px;
-    margin-left: 28px;
+    margin: 0 auto 33px auto;
 }
 
 .profile__name {
@@ -56,18 +52,24 @@
     font-size: 27px;
     line-height: 33px;
     color: #fff;
-    margin: 0;
+    margin-top: 0;
+    margin-bottom: 7px;
+    margin-left: 27px;
+    margin-right: 6px;
+    display: inline-block;
 }
 
 .profile__edit-button {
-    width: 16px;
-    height: 16px;
+    width: 18px;
+    height: 19px;
     border: 1px solid #FFFFFF;
     background: transparent;
     background-image: url(./images/profile-pen.svg);
     background-repeat: no-repeat;
     background-position: center;
     background-size: 7.5px;
+    display: inline-block;
+    padding: 0;
 }
 
 .profile__job {
@@ -75,7 +77,8 @@
     font-size: 14px;
     line-height: 17px;
     color: #FFFFFF;
-    margin: 0 0 33px 0;
+    margin: 0 auto;
+    text-align: center;
 }
 
 .profile__add-button {
