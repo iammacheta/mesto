@@ -34,6 +34,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-bottom: 36px;
 }
 
 .profile__image {
@@ -86,7 +87,6 @@
     height: 50px;
     border: 2px solid #FFFFFF;
     border-radius: 2px;
-    margin-bottom: 36px;
     background: transparent;
     background-image: url(./images/profile-cross.svg);
     background-repeat: no-repeat;
@@ -99,7 +99,7 @@
 }
 
 .gallery {
-    margin: 0;
+    margin: 0 0 50px 0;
     padding: 0;
     display: grid;
     grid-template-columns: 282px;
@@ -147,6 +147,17 @@
     background-repeat: no-repeat;
     width: 22px;
     background-position: center;
+}
+
+.footer {
+    margin: 0 19px 36px 19px;
+}
+
+.footer__copyright {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    color: #545454;
 }
 
 
