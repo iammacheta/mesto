@@ -263,30 +263,3 @@
     opacity: 0.8;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-/* @media screen and (min-width: 768px) {
-    .header {
-        margin: 45px 0 40px 0;
-    }
-
-    .header__logo {
-        width: 142px;
-        height: 33px;
-    }
-}
-
-@media screen and (min-width: 1024px) {
-    .header__logo {
-        margin: 0;
-    }
-} */

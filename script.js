@@ -12,23 +12,18 @@ let profile = document.querySelector('.profile')
 let profileName = profile.querySelector('.profile__name');
 let profileJob = profile.querySelector('.profile__job');
 
-// Обработчик «отправки» формы, хотя пока
+// Обработчик «отправки» формы
 function formSubmitHandler(evt) {
     evt.preventDefault(); // Эта строчка отменяет стандартную отправку формы.
     // Так мы можем определить свою логику отправки.
 
-    // Заменяем текст в элементах профиля на содержимое полей ввода
+    // Заменяем текст в элементах профиля на введенное содержимое полей ввода
     profileName.textContent = nameInput.value;
     profileJob.textContent = jobInput.value;
 
     // При сохранении данных из формы, нужно ее закрыть
     formElement.classList.remove('popup_opend');
 }
-
-// Прикрепляем обработчик к форме:
-// он будет следить за событием “submit” - «отправка»
-formElement.addEventListener('submit', formSubmitHandler);
-
 
 // Функция открытия поп-апа
 function openPupup() {
@@ -49,3 +44,7 @@ editButton.addEventListener('click', openPupup);
 // Обработка кнопки крестика, закрываем форму
 let closeButton = formElement.querySelector('.popup__close-button');
 closeButton.addEventListener('click', closePupup);
+
+// Прикрепляем обработчик к форме:
+// он будет следить за событием “submit” - «отправка»
+formElement.addEventListener('submit', formSubmitHandler);
