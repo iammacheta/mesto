@@ -1,12 +1,17 @@
 // Находим форму в DOM
-let formElement = document.querySelector('.popup')
+let formElement = document.querySelector('.form')
 
 // Находим поля формы
-let nameInput = formElement.querySelector('.popup__name')
-let jobInput = formElement.querySelector('.popup__job')
-// Находим кнопки формы
-let closeButton = formElement.querySelector('.popup__close-button')
-let saveButton = formElement.querySelector('.popup__submit')
+let nameInput = formElement.querySelector('.form__input_type_name')
+let jobInput = formElement.querySelector('.form__input_type_job')
+// Находим кнопку формы
+let saveButton = formElement.querySelector('.form__submit')
+
+
+// Находим модальное окно
+let popupElement = document.querySelector('.popup') 
+// Находим кнопку закрытия модального окна
+let closeButton = popupElement.querySelector('.popup__close-button')
 
 // Находим профайл в DOM 
 let profile = document.querySelector('.profile')
@@ -19,14 +24,14 @@ let editButton = profile.querySelector('.profile__edit-button')
 
 // Функция открытия поп-апа
 function openPupup(evt) {
-    formElement.classList.add('popup_opend')
+    popupElement.classList.add('popup_opend')
     nameInput.value = profileName.textContent
     jobInput.value = profileJob.textContent
 }
 
 // Функция закрытия поп-апа
 function closePupup(evt) {
-    formElement.classList.remove('popup_opend')
+    popupElement.classList.remove('popup_opend')
 }
 
 // Обработчик «отправки» формы
@@ -43,7 +48,7 @@ function formSubmitHandler(evt) {
     profileJob.textContent = jobInputValue
 
     // При сохранении данных из формы, нужно ее закрыть
-    formElement.classList.remove('popup_opend')
+    popupElement.classList.remove('popup_opend')
 }
 
 // Прикрепляем обработчик к кнопке сохранить в форме:
