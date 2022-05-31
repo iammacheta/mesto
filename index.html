@@ -10,81 +10,68 @@
 </head>
 
 <body class="root">
-    <div class="header">
+    <header class="header">
         <img src="./images/logo.svg" alt="логотип" class="header__logo">
-        <div class="header__line"></div>
-    </div>
-    <section>
-        <div class="profile">
+    </header>
+    <main>
+        <section class="profile">
             <img src="./images/profile-image.jpg" alt="Аватар" class="profile__image">
             <div class="profile__name-container">
                 <h1 class="profile__name">Жак-Ив Кусто</h1>
                 <button class="profile__edit-button" type="button"></button>
                 <p class="profile__job">Исследователь океана</p>
             </div>
-            <button class="profile__add-button"></button>
-        </div>
-    </section>
-    <section>
-        <ul class="gallery">
-            <li class="gallery__card">
-                <img src="./images/gallery-antarctica.jpg" alt="Антарктида" class="gallery__image">
-                <div class="gallery__caption">
-                    <div class="gallery__name">
-                        <p class="gallery__text">Антарктида</p>
-                        <div class="gallery__like"></div>
+            <button class="profile__add-button" type="button"></button>
+        </section>
+        <section>
+            <ul class="gallery">
+                <li class="gallery__card">
+                    <img src="./images/gallery-antarctica.jpg" alt="Антарктида" class="gallery__image">
+                    <div class="gallery__caption">
+                        <h2 class="gallery__text">Антарктида</h2>
+                        <button class="gallery__like" type="button"></button>
                     </div>
-                </div>
-            </li>
-            <li class="gallery__card">
-                <img src="./images/gallery-australia.jpg" alt="Австралия>" class="gallery__image">
-                <div class="gallery__caption">
-                    <div class="gallery__name">
-                        <p class="gallery__text">Австралия</p>
-                        <div class="gallery__like"></div>
+                </li>
+                <li class="gallery__card">
+                    <img src="./images/gallery-australia.jpg" alt="Австралия>" class="gallery__image">
+                    <div class="gallery__caption">
+                        <h2 class="gallery__text">Австралия</h2>
+                        <button class="gallery__like" type="button"></button>
                     </div>
-                </div>
-            </li>
-            <li class="gallery__card">
-                <img src="./images/gallery-bali.jpg" alt="Бали>" class="gallery__image">
-                <div class="gallery__caption">
-                    <div class="gallery__name">
-                        <p class="gallery__text">Бали</p>
-                        <div class="gallery__like"></div>
+                </li>
+                <li class="gallery__card">
+                    <img src="./images/gallery-bali.jpg" alt="Бали>" class="gallery__image">
+                    <div class="gallery__caption">
+                        <h2 class="gallery__text">Бали</h2>
+                        <button class="gallery__like" type="button"></button>
                     </div>
-                </div>
-            </li>
-            <li class="gallery__card">
-                <img src="./images/gallery-everest.jpg" alt="Эверест" class="gallery__image">
-                <div class="gallery__caption">
-                    <div class="gallery__name">
-                        <p class="gallery__text">Эверест</p>
-                        <div class="gallery__like"></div>
+                </li>
+                <li class="gallery__card">
+                    <img src="./images/gallery-everest.jpg" alt="Эверест" class="gallery__image">
+                    <div class="gallery__caption">
+                        <h2 class="gallery__text">Эверест</h2>
+                        <button class="gallery__like" type="button"></button>
                     </div>
-                </div>
-            </li>
-            <li class="gallery__card">
-                <img src="./images/gallery-grand-canyon.jpg" alt="Гранд-каньон" class="gallery__image">
-                <div class="gallery__caption">
-                    <div class="gallery__name">
-                        <p class="gallery__text">Гранд-каньон</p>
-                        <div class="gallery__like"></div>
+                </li>
+                <li class="gallery__card">
+                    <img src="./images/gallery-grand-canyon.jpg" alt="Гранд-каньон" class="gallery__image">
+                    <div class="gallery__caption">
+                        <h2 class="gallery__text">Гранд-каньон</h2>
+                        <button class="gallery__like" type="button"></button>
                     </div>
-                </div>
-            </li>
-            <li class="gallery__card">
-                <img src="./images/gallery-santorini.jpg" alt="Санторини" class="gallery__image">
-                <div class="gallery__caption">
-                    <div class="gallery__name">
-                        <p class="gallery__text">Санторини</p>
-                        <div class="gallery__like"></div>
+                </li>
+                <li class="gallery__card">
+                    <img src="./images/gallery-santorini.jpg" alt="Санторини" class="gallery__image">
+                    <div class="gallery__caption">
+                        <h2 class="gallery__text">Санторини</h2>
+                        <button class="gallery__like" type="button"></button>
                     </div>
-                </div>
-            </li>
-        </ul>
-    </section>
+                </li>
+            </ul>
+        </section>
+    </main>
     <footer class="footer">
-        <small class="footer__copyright">&copy; 2022 Mesto Russia</small>
+        <p class="footer__copyright">&copy; 2022 Mesto Russia</p>
     </footer>
     <div class="popup">
         <form action="save" class="popup__container">
@@ -95,7 +82,7 @@
             <input class="popup__submit" type="submit" value="Сохранить">
         </form>
     </div>
-    <script src="./script.js"></script>
+    <script src="./scripts/index.js"></script>
 </body>
 
 </html>

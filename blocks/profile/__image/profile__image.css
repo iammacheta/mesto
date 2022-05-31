@@ -1,7 +1,6 @@
 .profile__image {
     height: 120px;
     border-radius: 50%;
-    margin-bottom: 26px;
 }
 
 @media screen and (min-width: 615px) {

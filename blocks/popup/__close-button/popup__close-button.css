@@ -9,6 +9,7 @@
     background-image: url(../../../images/popup-close-button.svg);
     background-repeat: no-repeat;
     background-size: 20px;
+    cursor: pointer;
 }
 
 .popup__close-button:hover {
