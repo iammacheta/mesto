@@ -164,6 +164,11 @@ const initialCards = [
     // Подпись карточки
     cardElement.querySelector('.gallery__text').textContent = element.name
 
+    const cardLike = cardElement.querySelector('.gallery__like')
+    cardLike.addEventListener('click', function(evt) {
+      evt.target.classList.toggle('gallery__like_active')
+    })
+
     // Добавляем карточку в начало галереи
     galleryContainer.prepend(cardElement)
   } 
