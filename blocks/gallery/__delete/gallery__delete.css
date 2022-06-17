@@ -1,5 +1,5 @@
 .gallery__delete {
-    background-image: url(../../../../images/gallery-trash.svg);
+    background-image: url(../../../images/gallery-trash.svg);
     position: absolute;
     right: 20px;
     top: 20px;
