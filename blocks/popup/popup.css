@@ -8,5 +8,9 @@
     height: 100vh;
     z-index: 2;
     background: #00000080;
-    display: none;
+    display: flex;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0.5s, opacity 0.5s linear;
+
 }
