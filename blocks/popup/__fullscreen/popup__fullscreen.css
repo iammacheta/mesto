@@ -1,0 +1,7 @@
+.popup__fullscreen {
+    max-width: 75vh;
+    max-height: 75vh;
+    position: relative;
+    top: 0;
+    left: 0;
+}

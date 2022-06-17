@@ -49,11 +49,21 @@
             <button class="popup__close-button" type="button"></button>
             <form action="save" class="form" name="new-place">
                 <h3 class="form__title">Новое место</h3>
-                <input class="form__input form__input_type_card-name" type="text" name="card-name" placeholder="Название" required>
-                <input class="form__input form__input_type_card-url" type="text" name="card-url" placeholder="Ссылка на картинку" required>
+                <input class="form__input form__input_type_card-name" type="text" name="card-name"
+                    placeholder="Название" required>
+                <input class="form__input form__input_type_card-url" type="text" name="card-url"
+                    placeholder="Ссылка на картинку" required>
                 <input class="form__submit" type="submit" value="Создать">
             </form>
         </div>
+    </div>
+
+    <div class="popup popup_type_fs">
+        <figure class="popup__fullscreen">
+            <button class="popup__close-button" type="button"></button>
+            <img class="popup__image">
+            <figcaption class="popup__caption"></figcaption>
+        </figure>
     </div>
 
     <template id="card-template">
