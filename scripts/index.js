@@ -164,9 +164,16 @@ const initialCards = [
     // Подпись карточки
     cardElement.querySelector('.gallery__text').textContent = element.name
 
+    // Добавляем слушатель на кнопку лайк
     const cardLike = cardElement.querySelector('.gallery__like')
     cardLike.addEventListener('click', function(evt) {
       evt.target.classList.toggle('gallery__like_active')
+    })
+
+    // Добавляем слушатель на кнопку удалить
+    const cardDelete = cardElement.querySelector('.gallery__delete')
+    cardDelete.addEventListener('click', (evt) => {
+      evt.target.parentElement.remove()
     })
 
     // Добавляем карточку в начало галереи
