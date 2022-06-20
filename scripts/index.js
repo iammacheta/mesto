@@ -86,7 +86,7 @@ function closePupupCard(evt) {
 }
 
 // Обработчик «отправки» формы Card
-function formSubmitHandlerCard(evt) {
+function submitAddCardForm(evt) {
   evt.preventDefault(); // Эта строчка отменяет стандартную отправку формы.
   // Так мы можем определить свою логику отправки.
 
@@ -107,7 +107,7 @@ function formSubmitHandlerCard(evt) {
 
 // Прикрепляем обработчик к кнопке сохранить в форме добавления карточки:
 // он будет следить за событием “submit” - «отправка»
-popupElementCard.addEventListener('submit', formSubmitHandlerCard)
+popupElementCard.addEventListener('submit', submitAddCardForm)
 
 
 // Обработка кнопки Редактировать, открываем форму рекдактирования карточки
