@@ -38,13 +38,9 @@ function submitEditProfileForm(evt) {
   evt.preventDefault(); // Эта строчка отменяет стандартную отправку формы.
   // Так мы можем определить свою логику отправки.
 
-  // Получаем значение полей jobInput и nameInput из свойства value
-  let nameInputValue = nameInput.value
-  let jobInputValue = jobInput.value
-
   // Заменяем текст в элементах профиля на введенное содержимое полей ввода
-  profileName.textContent = nameInputValue
-  profileJob.textContent = jobInputValue
+  profileName.textContent = nameInput.value
+  profileJob.textContent = jobInput.value
 
   // При сохранении данных из формы, нужно ее закрыть
   popupElementProfile.classList.remove('popup_opend')
@@ -94,7 +90,7 @@ function formSubmitHandlerCard(evt) {
   evt.preventDefault(); // Эта строчка отменяет стандартную отправку формы.
   // Так мы можем определить свою логику отправки.
 
-  let newCard = []
+  const newCard = []
   newCard.name = cardNameInput.value
   newCard.link = cardUrlInput.value
 
