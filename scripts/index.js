@@ -95,7 +95,10 @@ function submitAddCardForm(evt) {
   newCard.link = cardUrlInput.value
 
   // Вызываем функцию создания новой карточки и передаем ей новый объект на вход
-  createCard(newCard)
+  const newCardElement = createCard(newCard)
+// Добавляем новую карточку в начало галереи 
+  addCard(newCardElement)
+
 
   // Очищаем поля ввода
   cardNameInput.value = ''
@@ -181,14 +184,19 @@ function createCard(element) {
     imageFullscreen.src = element.link
     imageFullscreen.alt = element.name
     imageCaption.textContent = element.name
-
   })
 
+  return cardElement
+}
+
+function addCard(cardElement) {
   // Добавляем карточку в начало галереи
   galleryContainer.prepend(cardElement)
 }
 
-// Проходимся по всем элементам и создаем карточки 
+
+// Проходимся по всем элементам, создаем карточки и добавляем их в галерею
 initialCards.forEach(element => {
-  createCard(element)
+  const newCard = createCard(element)
+  addCard(newCard)
 })
