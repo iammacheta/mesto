@@ -34,7 +34,7 @@ function closePupupProfile(evt) {
 }
 
 // Обработчик «отправки» формы profile
-function formSubmitHandlerProfile(evt) {
+function submitEditProfileForm(evt) {
   evt.preventDefault(); // Эта строчка отменяет стандартную отправку формы.
   // Так мы можем определить свою логику отправки.
 
@@ -52,7 +52,7 @@ function formSubmitHandlerProfile(evt) {
 
 // Прикрепляем обработчик к кнопке сохранить в форме profile:
 // он будет следить за событием “submit” - «отправка»
-popupElementProfile.addEventListener('submit', formSubmitHandlerProfile)
+popupElementProfile.addEventListener('submit', submitEditProfileForm)
 
 // Обработка кнопки Редактировать, открываем форму profile
 editButton.addEventListener('click', openPopupProfile)
