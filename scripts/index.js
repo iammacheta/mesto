@@ -1,5 +1,5 @@
 // Находим модальное окно PROFILE
-const popupElementProfile = document.querySelectorAll('.popup')[0]
+const popupElementProfile = document.querySelector('.popup_type_edit-profile')
 // Находим кнопку закрытия модального окна профиля
 const closeButtonProfile = popupElementProfile.querySelector('.popup__close-button')
 
@@ -62,7 +62,7 @@ closeButtonProfile.addEventListener('click', closePupupProfile)
 
 
 // Находим модальное окно CARD
-const popupElementCard = document.querySelectorAll('.popup')[1]
+const popupElementCard = document.querySelector('.popup_type_add-card')
 // Находим кнопку закрытия модального окна card
 const closeButtonCard = popupElementCard.querySelector('.popup__close-button')
 
@@ -124,7 +124,7 @@ closeButtonCard.addEventListener('click', closePupupCard)
 
 
 // Находим модальное окно FULLSCREEN
-const popupElementFullscreen = document.querySelectorAll('.popup')[2]
+const popupElementFullscreen = document.querySelector('.popup_type_fs')
 // Находим кнопку закрытия модального окна card
 const closeButtonFullscreen = popupElementFullscreen.querySelector('.popup__close-button')
 
