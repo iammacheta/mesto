@@ -21,15 +21,10 @@ const profileJob = profile.querySelector('.profile__job')
 const editButton = profile.querySelector('.profile__edit-button')
 
 // Функция открытия поп-апа profile
-function openPopupProfile(evt) {
+function openPopupProfile() {
   openPopup(popupElementProfile)
   nameInput.value = profileName.textContent
   jobInput.value = profileJob.textContent
-}
-
-// Функция закрытия поп-апа profile
-function closePupupProfile(evt) {
-  popupElementProfile.classList.remove('popup_opend')
 }
 
 // Обработчик «отправки» формы profile
@@ -42,7 +37,7 @@ function submitEditProfileForm(evt) {
   profileJob.textContent = jobInput.value
 
   // При сохранении данных из формы, нужно ее закрыть
-  popupElementProfile.classList.remove('popup_opend')
+  closePopup(popupElementProfile)
 }
 
 // Прикрепляем обработчик к кнопке сохранить в форме profile:
@@ -50,10 +45,14 @@ function submitEditProfileForm(evt) {
 popupElementProfile.addEventListener('submit', submitEditProfileForm)
 
 // Обработка кнопки Редактировать, открываем форму profile
-editButton.addEventListener('click', openPopupProfile)
+editButton.addEventListener('click', () => {
+  openPopup(popupElementProfile)
+} )
 
 // Обработка кнопки крестика, закрываем форму profile
-closeButtonProfile.addEventListener('click', closePupupProfile)
+closeButtonProfile.addEventListener('click', ()=> {
+  closePopup(popupElementProfile)
+})
 
 
 // Находим модальное окно CARD
@@ -73,11 +72,6 @@ const addButton = profile.querySelector('.profile__add-button')
 
 // Находим кнопку сохранения формы card
 const createButtonCard = formElementCard.querySelector('.form__submit')
-
-// Функция закрытия поп-апа card
-function closePupupCard(evt) {
-  popupElementCard.classList.remove('popup_opend')
-}
 
 // Обработчик «отправки» формы Card
 function submitAddCardForm(evt) {
@@ -99,7 +93,7 @@ function submitAddCardForm(evt) {
   cardUrlInput.value = ''
 
   // При сохранении данных из формы, нужно ее закрыть
-  popupElementCard.classList.remove('popup_opend')
+  closePopup(popupElementCard)
 }
 
 // Прикрепляем обработчик к кнопке сохранить в форме добавления карточки:
@@ -108,10 +102,14 @@ popupElementCard.addEventListener('submit', submitAddCardForm)
 
 
 // Обработка кнопки Редактировать, открываем форму рекдактирования карточки
-addButton.addEventListener('click', openPopup(popupElementCard))
+addButton.addEventListener('click', () => {
+  openPopup(popupElementCard)
+})
 
 // Обработка кнопки крестика, закрываем форму редактирования карточки
-closeButtonCard.addEventListener('click', closePupupCard)
+closeButtonCard.addEventListener('click', ()=> {
+  closePopup(popupElementCard)
+})
 
 
 
@@ -122,12 +120,10 @@ const popupElementFullscreen = document.querySelector('.popup_type_fs')
 const closeButtonFullscreen = popupElementFullscreen.querySelector('.popup__close-button')
 
 // Обработка кнопки крестика, закрываем фуллскрин
-closeButtonFullscreen.addEventListener('click', closePupupFullscreen)
+closeButtonFullscreen.addEventListener('click', ()=> {
+  closePopup(popupElementFullscreen)
+})
 
-// Функция закрытия поп-апа фуллскрин
-function closePupupFullscreen(evt) {
-  popupElementFullscreen.classList.remove('popup_opend')
-}
 
 // Находим элемент figure
 const figureElement = document.querySelector('.popup__fullscreen')
@@ -168,7 +164,7 @@ function createCard(element) {
   })
 
   // Добавляем слушатель на открытие в фуллскрин
-  cardImage.addEventListener('click', (evt) => {
+  cardImage.addEventListener('click', () => {
     openPopup(popupElementFullscreen)
     imageFullscreen.src = element.link
     imageFullscreen.alt = element.name
@@ -190,6 +186,13 @@ initialCards.forEach(element => {
   addCard(newCard)
 })
 
+
+// Объявляем функцию закрытия попапа
 function openPopup(popup) {
   popup.classList.add('popup_opend')
+}
+
+// Объявляем функцию открытия попапа
+function closePopup(popup) {
+  popup.classList.remove('popup_opend')
 }
