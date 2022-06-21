@@ -22,8 +22,7 @@ const editButton = profile.querySelector('.profile__edit-button')
 
 // Функция открытия поп-апа profile
 function openPopupProfile(evt) {
-  popupElementProfile.classList.add('popup_opend')
-  console.log('click to add button')
+  openPopup(popupElementProfile)
   nameInput.value = profileName.textContent
   jobInput.value = profileJob.textContent
 }
@@ -75,11 +74,6 @@ const addButton = profile.querySelector('.profile__add-button')
 // Находим кнопку сохранения формы card
 const createButtonCard = formElementCard.querySelector('.form__submit')
 
-// Функция открытия поп-апа card
-function openPopupCard(evt) {
-  popupElementCard.classList.add('popup_opend')
-}
-
 // Функция закрытия поп-апа card
 function closePupupCard(evt) {
   popupElementCard.classList.remove('popup_opend')
@@ -114,7 +108,7 @@ popupElementCard.addEventListener('submit', submitAddCardForm)
 
 
 // Обработка кнопки Редактировать, открываем форму рекдактирования карточки
-addButton.addEventListener('click', openPopupCard)
+addButton.addEventListener('click', openPopup(popupElementCard))
 
 // Обработка кнопки крестика, закрываем форму редактирования карточки
 closeButtonCard.addEventListener('click', closePupupCard)
@@ -129,11 +123,6 @@ const closeButtonFullscreen = popupElementFullscreen.querySelector('.popup__clos
 
 // Обработка кнопки крестика, закрываем фуллскрин
 closeButtonFullscreen.addEventListener('click', closePupupFullscreen)
-
-// Функция открытия поп-апа фуллскрин
-function openPopupFullscreen(evt) {
-  popupElementFullscreen.classList.add('popup_opend')
-}
 
 // Функция закрытия поп-апа фуллскрин
 function closePupupFullscreen(evt) {
@@ -180,7 +169,7 @@ function createCard(element) {
 
   // Добавляем слушатель на открытие в фуллскрин
   cardImage.addEventListener('click', (evt) => {
-    openPopupFullscreen()
+    openPopup(popupElementFullscreen)
     imageFullscreen.src = element.link
     imageFullscreen.alt = element.name
     imageCaption.textContent = element.name
@@ -200,3 +189,7 @@ initialCards.forEach(element => {
   const newCard = createCard(element)
   addCard(newCard)
 })
+
+function openPopup(popup) {
+  popup.classList.add('popup_opend')
+}
