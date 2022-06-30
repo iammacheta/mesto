@@ -4,7 +4,7 @@
     font-size: 12px;
     line-height: 15px;
     color: #f00;
-    position: absolute
+    position: absolute;
 }
 
 .form__error:nth-of-type(odd) {
