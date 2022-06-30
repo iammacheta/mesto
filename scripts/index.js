@@ -20,13 +20,6 @@ const profileName = profile.querySelector('.profile__name')
 const profileJob = profile.querySelector('.profile__job')
 const editButton = profile.querySelector('.profile__edit-button')
 
-// Функция открытия поп-апа profile
-function openPopupProfile() {
-  openPopup(popupElementProfile)
-  nameInput.value = profileName.textContent
-  jobInput.value = profileJob.textContent
-}
-
 // Обработчик «отправки» формы profile
 function submitEditProfileForm(evt) {
   evt.preventDefault(); // Эта строчка отменяет стандартную отправку формы.
@@ -47,10 +40,19 @@ popupElementProfile.addEventListener('submit', submitEditProfileForm)
 // Обработка кнопки Редактировать, открываем форму profile
 editButton.addEventListener('click', () => {
   openPopup(popupElementProfile)
-} )
+  // Проверяем поля формы на валидность
+  preValidation({
+    formSelector: '.form',
+    inputSelector: '.form__input',
+    submitButtonSelector: '.form__submit',
+    inactiveButtonClass: 'form__submit_disabled',
+    inputErrorClass: 'form__input_type_error',
+    errorClass: 'form__error_visible'
+  }, popupElementProfile)
+})
 
 // Обработка кнопки крестика, закрываем форму profile
-closeButtonProfile.addEventListener('click', ()=> {
+closeButtonProfile.addEventListener('click', () => {
   closePopup(popupElementProfile)
 })
 
@@ -84,7 +86,7 @@ function submitAddCardForm(evt) {
 
   // Вызываем функцию создания новой карточки и передаем ей новый объект на вход
   const newCardElement = createCard(newCard)
-// Добавляем новую карточку в начало галереи 
+  // Добавляем новую карточку в начало галереи 
   addCard(newCardElement)
 
 
@@ -104,10 +106,19 @@ popupElementCard.addEventListener('submit', submitAddCardForm)
 // Обработка кнопки Редактировать, открываем форму рекдактирования карточки
 addButton.addEventListener('click', () => {
   openPopup(popupElementCard)
+  // Проверяем поля формы на валидность
+  preValidation({
+    formSelector: '.form',
+    inputSelector: '.form__input',
+    submitButtonSelector: '.form__submit',
+    inactiveButtonClass: 'form__submit_disabled',
+    inputErrorClass: 'form__input_type_error',
+    errorClass: 'form__error_visible'
+  }, popupElementCard)
 })
 
 // Обработка кнопки крестика, закрываем форму редактирования карточки
-closeButtonCard.addEventListener('click', ()=> {
+closeButtonCard.addEventListener('click', () => {
   closePopup(popupElementCard)
 })
 
@@ -120,9 +131,10 @@ const popupElementFullscreen = document.querySelector('.popup_type_fs')
 const closeButtonFullscreen = popupElementFullscreen.querySelector('.popup__close-button')
 
 // Обработка кнопки крестика, закрываем фуллскрин
-closeButtonFullscreen.addEventListener('click', ()=> {
+closeButtonFullscreen.addEventListener('click', () => {
   closePopup(popupElementFullscreen)
 })
+
 
 
 // Находим элемент figure
@@ -187,12 +199,28 @@ initialCards.forEach(element => {
 })
 
 
-// Объявляем функцию закрытия попапа
+// Объявляем функцию открытия попапа
 function openPopup(popup) {
   popup.classList.add('popup_opend')
+  // Вешаем слушатель события нажатия кнопки Esc
+  document.addEventListener('keyup', closeByEsc)
 }
 
-// Объявляем функцию открытия попапа
+// Объявляем функцию закрытия попапа
 function closePopup(popup) {
   popup.classList.remove('popup_opend')
+  // При закрытии формы удаляем слушатель нажатия на клавиатуру
+  document.removeEventListener('keyup', closeByEsc)
+
 }
+
+// Функция закрытия при нажатии на esc
+function closeByEsc(evt) {
+  if (evt.key === 'Escape') {
+    const openedPopup = document.querySelector('.popup_opend')
+    closePopup(openedPopup)
+  }
+}
+
+
+
