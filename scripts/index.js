@@ -137,7 +137,7 @@ function openPopup(popup) {
   popup.classList.add('popup_opend')
   // Вешаем слушатель события нажатия кнопки и клика для закрытия по Esc и клику по оверлею
   document.addEventListener('keyup', closeByEsc)
-  document.addEventListener('click', closeByClick)
+  popup.addEventListener('click', closeByClick)
 }
 
 // Объявляем функцию закрытия попапа
@@ -145,7 +145,6 @@ function closePopup(popup) {
   popup.classList.remove('popup_opend')
   // При закрытии формы удаляем слушатели
   document.removeEventListener('keyup', closeByEsc)
-  document.removeEventListener('click', closeByClick)
 }
 
 // Функция закрытия при нажатии на esc
