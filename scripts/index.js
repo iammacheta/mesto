@@ -9,8 +9,6 @@ const formElementProfile = popupElementProfile.querySelector('.form')
 // Находим поля формы профиля
 const nameInput = formElementProfile.querySelector('.form__input_type_name')
 const jobInput = formElementProfile.querySelector('.form__input_type_job')
-// Находим кнопку формы профиля
-const saveButtonProfile = formElementProfile.querySelector('.form__submit')
 
 // Находим профайл в DOM 
 const profile = document.querySelector('.profile')
