@@ -113,7 +113,7 @@ function createCard(element) {
   // Добавляем слушатель на кнопку удалить
   const cardDelete = cardElement.querySelector('.gallery__delete')
   cardDelete.addEventListener('click', (evt) => {
-    evt.target.parentElement.remove()
+    cardDelete.parentElement.remove()
   })
 
   // Добавляем слушатель на открытие в фуллскрин
