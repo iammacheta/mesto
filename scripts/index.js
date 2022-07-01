@@ -70,7 +70,7 @@ function handleSubmitAddCardForm(evt) {
   evt.preventDefault(); // Эта строчка отменяет стандартную отправку формы.
   // Так мы можем определить свою логику отправки.
 
-  const newCard = []
+  const newCard = {}
   newCard.name = cardNameInput.value
   newCard.link = cardUrlInput.value
 
