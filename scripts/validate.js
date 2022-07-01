@@ -78,15 +78,4 @@ enableValidation({
     inactiveButtonClass: 'form__submit_disabled',
     inputErrorClass: 'form__input_type_error',
     errorClass: 'form__error_visible'
-});
-
-// Функция проверки валидации при открытии формы
-function preValidation(classSet, popup) {
-    const formElement = popup.querySelector('.form');
-    const inputList = Array.from(formElement.querySelectorAll(classSet.inputSelector));
-    const buttonElement = formElement.querySelector(classSet.submitButtonSelector)
-    toggleButtonState(inputList, buttonElement, classSet);
-    inputList.forEach((inputElement) => {
-        checkInputValidity(formElement, inputElement, classSet)
-    })
-}
+})
