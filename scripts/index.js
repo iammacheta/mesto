@@ -18,42 +18,6 @@ const profileName = profile.querySelector('.profile__name')
 const profileJob = profile.querySelector('.profile__job')
 const editButton = profile.querySelector('.profile__edit-button')
 
-// Обработчик «отправки» формы profile
-function handlerSubmitEditProfileForm(evt) {
-  evt.preventDefault(); // Эта строчка отменяет стандартную отправку формы.
-  // Так мы можем определить свою логику отправки.
-
-  // Заменяем текст в элементах профиля на введенное содержимое полей ввода
-  profileName.textContent = nameInput.value
-  profileJob.textContent = jobInput.value
-
-  // При сохранении данных из формы, нужно ее закрыть
-  closePopup(popupElementProfile)
-}
-
-// Прикрепляем обработчик к кнопке сохранить в форме profile:
-// он будет следить за событием “submit” - «отправка»
-popupElementProfile.addEventListener('submit', handlerSubmitEditProfileForm)
-
-// Обработка кнопки Редактировать, открываем форму profile
-editButton.addEventListener('click', () => {
-  openPopup(popupElementProfile)
-  // Проверяем поля формы на валидность
-  preValidation({
-    formSelector: '.form',
-    inputSelector: '.form__input',
-    submitButtonSelector: '.form__submit',
-    inactiveButtonClass: 'form__submit_disabled',
-    inputErrorClass: 'form__input_type_error',
-    errorClass: 'form__error_visible'
-  }, popupElementProfile)
-})
-
-// Обработка кнопки крестика, закрываем форму profile
-closeButtonProfile.addEventListener('click', () => {
-  closePopup(popupElementProfile)
-})
-
 
 // Находим модальное окно CARD
 const popupElementCard = document.querySelector('.popup_type_add-card')
@@ -72,6 +36,38 @@ const addButton = profile.querySelector('.profile__add-button')
 
 // Находим кнопку сохранения формы card
 const createButtonCard = formElementCard.querySelector('.form__submit')
+
+
+// Находим элемент figure
+const figureElement = document.querySelector('.popup__fullscreen')
+
+// Находим элемент фулскрин картинку
+const imageFullscreen = figureElement.querySelector('.popup__image')
+
+// Находим элемент подпись к фулскрин картинке
+const imageCaption = figureElement.querySelector('.popup__caption')
+
+//   Добавляем 6 карточек из "коробки" через JavaScript
+const galleryContainer = document.querySelector('.gallery')
+const cardTemplate = document.querySelector('#card-template').content
+
+// Находим модальное окно FULLSCREEN
+const popupElementFullscreen = document.querySelector('.popup_type_fs')
+// Находим кнопку закрытия модального окна card
+const closeButtonFullscreen = popupElementFullscreen.querySelector('.popup__close-button')
+
+// Обработчик «отправки» формы profile
+function handlerSubmitEditProfileForm(evt) {
+  evt.preventDefault(); // Эта строчка отменяет стандартную отправку формы.
+  // Так мы можем определить свою логику отправки.
+
+  // Заменяем текст в элементах профиля на введенное содержимое полей ввода
+  profileName.textContent = nameInput.value
+  profileJob.textContent = jobInput.value
+
+  // При сохранении данных из формы, нужно ее закрыть
+  closePopup(popupElementProfile)
+}
 
 // Обработчик «отправки» формы Card
 function submitAddCardForm(evt) {
@@ -95,59 +91,6 @@ function submitAddCardForm(evt) {
   // При сохранении данных из формы, нужно ее закрыть
   closePopup(popupElementCard)
 }
-
-// Прикрепляем обработчик к кнопке сохранить в форме добавления карточки:
-// он будет следить за событием “submit” - «отправка»
-popupElementCard.addEventListener('submit', submitAddCardForm)
-
-
-// Обработка кнопки Редактировать, открываем форму рекдактирования карточки
-addButton.addEventListener('click', () => {
-  openPopup(popupElementCard)
-  // Проверяем поля формы на валидность
-  preValidation({
-    formSelector: '.form',
-    inputSelector: '.form__input',
-    submitButtonSelector: '.form__submit',
-    inactiveButtonClass: 'form__submit_disabled',
-    inputErrorClass: 'form__input_type_error',
-    errorClass: 'form__error_visible'
-  }, popupElementCard)
-})
-
-// Обработка кнопки крестика, закрываем форму редактирования карточки
-closeButtonCard.addEventListener('click', () => {
-  closePopup(popupElementCard)
-})
-
-
-
-
-// Находим модальное окно FULLSCREEN
-const popupElementFullscreen = document.querySelector('.popup_type_fs')
-// Находим кнопку закрытия модального окна card
-const closeButtonFullscreen = popupElementFullscreen.querySelector('.popup__close-button')
-
-// Обработка кнопки крестика, закрываем фуллскрин
-closeButtonFullscreen.addEventListener('click', () => {
-  closePopup(popupElementFullscreen)
-})
-
-
-
-// Находим элемент figure
-const figureElement = document.querySelector('.popup__fullscreen')
-
-// Находим элемент фулскрин картинку
-const imageFullscreen = figureElement.querySelector('.popup__image')
-
-// Находим элемент подпись к фулскрин картинке
-const imageCaption = figureElement.querySelector('.popup__caption')
-
-//   Добавляем 6 карточек из "коробки" через JavaScript
-const galleryContainer = document.querySelector('.gallery')
-const cardTemplate = document.querySelector('#card-template').content
-
 
 // Объявляем функцию для создания карточки
 function createCard(element) {
@@ -189,14 +132,6 @@ function addCard(cardElement) {
   galleryContainer.prepend(cardElement)
 }
 
-
-// Проходимся по всем элементам, создаем карточки и добавляем их в галерею
-initialCards.forEach(element => {
-  const newCard = createCard(element)
-  addCard(newCard)
-})
-
-
 // Объявляем функцию открытия попапа
 function openPopup(popup) {
   popup.classList.add('popup_opend')
@@ -230,3 +165,59 @@ function closeByClick(evt) {
 }
 
 
+// Прикрепляем обработчик к кнопке сохранить в форме profile:
+// он будет следить за событием “submit” - «отправка»
+popupElementProfile.addEventListener('submit', handlerSubmitEditProfileForm)
+
+// Обработка кнопки Редактировать, открываем форму profile
+editButton.addEventListener('click', () => {
+  openPopup(popupElementProfile)
+  // Проверяем поля формы на валидность
+  preValidation({
+    formSelector: '.form',
+    inputSelector: '.form__input',
+    submitButtonSelector: '.form__submit',
+    inactiveButtonClass: 'form__submit_disabled',
+    inputErrorClass: 'form__input_type_error',
+    errorClass: 'form__error_visible'
+  }, popupElementProfile)
+})
+
+// Обработка кнопки крестика, закрываем форму profile
+closeButtonProfile.addEventListener('click', () => {
+  closePopup(popupElementProfile)
+})
+
+// Прикрепляем обработчик к кнопке сохранить в форме добавления карточки:
+// он будет следить за событием “submit” - «отправка»
+popupElementCard.addEventListener('submit', submitAddCardForm)
+
+// Обработка кнопки Редактировать, открываем форму рекдактирования карточки
+addButton.addEventListener('click', () => {
+  openPopup(popupElementCard)
+  // Проверяем поля формы на валидность
+  preValidation({
+    formSelector: '.form',
+    inputSelector: '.form__input',
+    submitButtonSelector: '.form__submit',
+    inactiveButtonClass: 'form__submit_disabled',
+    inputErrorClass: 'form__input_type_error',
+    errorClass: 'form__error_visible'
+  }, popupElementCard)
+})
+
+// Обработка кнопки крестика, закрываем форму редактирования карточки
+closeButtonCard.addEventListener('click', () => {
+  closePopup(popupElementCard)
+})
+
+// Обработка кнопки крестика, закрываем фуллскрин
+closeButtonFullscreen.addEventListener('click', () => {
+  closePopup(popupElementFullscreen)
+})
+
+// Проходимся по всем элементам, создаем карточки и добавляем их в галерею
+initialCards.forEach(element => {
+  const newCard = createCard(element)
+  addCard(newCard)
+})
