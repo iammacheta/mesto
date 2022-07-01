@@ -103,10 +103,11 @@ function createCard(element) {
   // Подпись карточки
   cardElement.querySelector('.gallery__text').textContent = element.name
 
+  // Ищем кнопку лайка, которую далее используем в колбеке нажатия на нее
+  const likeButton = cardElement.querySelector('.gallery__like')
   // Добавляем слушатель на кнопку лайк
-  const cardLike = cardElement.querySelector('.gallery__like')
-  cardLike.addEventListener('click', function (evt) {
-    evt.target.classList.toggle('gallery__like_active')
+  likeButton.addEventListener('click', function () {
+    likeButton.classList.toggle('gallery__like_active')
   })
 
   // Добавляем слушатель на кнопку удалить
@@ -202,3 +203,4 @@ initialCards.forEach(element => {
   const newCard = createCard(element)
   addCard(newCard)
 })
+
