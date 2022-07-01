@@ -19,7 +19,7 @@ const profileJob = profile.querySelector('.profile__job')
 const editButton = profile.querySelector('.profile__edit-button')
 
 // Обработчик «отправки» формы profile
-function submitEditProfileForm(evt) {
+function handlerSubmitEditProfileForm(evt) {
   evt.preventDefault(); // Эта строчка отменяет стандартную отправку формы.
   // Так мы можем определить свою логику отправки.
 
@@ -33,7 +33,7 @@ function submitEditProfileForm(evt) {
 
 // Прикрепляем обработчик к кнопке сохранить в форме profile:
 // он будет следить за событием “submit” - «отправка»
-popupElementProfile.addEventListener('submit', submitEditProfileForm)
+popupElementProfile.addEventListener('submit', handlerSubmitEditProfileForm)
 
 // Обработка кнопки Редактировать, открываем форму profile
 editButton.addEventListener('click', () => {
