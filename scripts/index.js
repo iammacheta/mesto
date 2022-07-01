@@ -34,10 +34,6 @@ const cardUrlInput = formElementCard.querySelector('.form__input_type_card-url')
 // Находим кнопку добавить карточку
 const addButton = profile.querySelector('.profile__add-button')
 
-// Находим кнопку сохранения формы card
-const createButtonCard = formElementCard.querySelector('.form__submit')
-
-
 // Находим элемент figure
 const figureElement = document.querySelector('.popup__fullscreen')
 
@@ -70,7 +66,7 @@ function handlerSubmitEditProfileForm(evt) {
 }
 
 // Обработчик «отправки» формы Card
-function submitAddCardForm(evt) {
+function handleSubmitAddCardForm(evt) {
   evt.preventDefault(); // Эта строчка отменяет стандартную отправку формы.
   // Так мы можем определить свою логику отправки.
 
@@ -172,15 +168,6 @@ popupElementProfile.addEventListener('submit', handlerSubmitEditProfileForm)
 // Обработка кнопки Редактировать, открываем форму profile
 editButton.addEventListener('click', () => {
   openPopup(popupElementProfile)
-  // Проверяем поля формы на валидность
-  preValidation({
-    formSelector: '.form',
-    inputSelector: '.form__input',
-    submitButtonSelector: '.form__submit',
-    inactiveButtonClass: 'form__submit_disabled',
-    inputErrorClass: 'form__input_type_error',
-    errorClass: 'form__error_visible'
-  }, popupElementProfile)
 })
 
 // Обработка кнопки крестика, закрываем форму profile
@@ -190,20 +177,11 @@ closeButtonProfile.addEventListener('click', () => {
 
 // Прикрепляем обработчик к кнопке сохранить в форме добавления карточки:
 // он будет следить за событием “submit” - «отправка»
-popupElementCard.addEventListener('submit', submitAddCardForm)
+popupElementCard.addEventListener('submit', handleSubmitAddCardForm)
 
 // Обработка кнопки Редактировать, открываем форму рекдактирования карточки
 addButton.addEventListener('click', () => {
   openPopup(popupElementCard)
-  // Проверяем поля формы на валидность
-  preValidation({
-    formSelector: '.form',
-    inputSelector: '.form__input',
-    submitButtonSelector: '.form__submit',
-    inactiveButtonClass: 'form__submit_disabled',
-    inputErrorClass: 'form__input_type_error',
-    errorClass: 'form__error_visible'
-  }, popupElementCard)
 })
 
 // Обработка кнопки крестика, закрываем форму редактирования карточки
