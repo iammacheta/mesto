@@ -52,6 +52,9 @@ const popupElementFullscreen = document.querySelector('.popup_type_fs')
 // Находим кнопку закрытия модального окна card
 const closeButtonFullscreen = popupElementFullscreen.querySelector('.popup__close-button')
 
+// Находим карточку в тепмлейт, чтобы потом ее клонирвоать в функции
+const cardTemplateElement  = cardTemplate.querySelector('.gallery__card')
+
 // Обработчик «отправки» формы profile
 function handlerSubmitEditProfileForm(evt) {
   evt.preventDefault(); // Эта строчка отменяет стандартную отправку формы.
@@ -90,7 +93,7 @@ function handleSubmitAddCardForm(evt) {
 
 // Объявляем функцию для создания карточки
 function createCard(element) {
-  const cardElement = cardTemplate.querySelector('.gallery__card').cloneNode(true)
+  const cardElement = cardTemplateElement.cloneNode(true)
   const cardImage = cardElement.querySelector('.gallery__image')
 
   // Присваиваем значения атрибутам картинок
