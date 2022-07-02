@@ -56,7 +56,7 @@ const closeButtonFullscreen = popupElementFullscreen.querySelector('.popup__clos
 const cardTemplateElement  = cardTemplate.querySelector('.gallery__card')
 
 // Обработчик «отправки» формы profile
-function handlerSubmitEditProfileForm(evt) {
+function handleSubmitEditProfileForm(evt) {
   evt.preventDefault(); // Эта строчка отменяет стандартную отправку формы.
   // Так мы можем определить свою логику отправки.
 
@@ -166,7 +166,7 @@ function closeByClick(evt) {
 
 // Прикрепляем обработчик к кнопке сохранить в форме profile:
 // он будет следить за событием “submit” - «отправка»
-popupElementProfile.addEventListener('submit', handlerSubmitEditProfileForm)
+popupElementProfile.addEventListener('submit', handleSubmitEditProfileForm)
 
 // Обработка кнопки Редактировать, открываем форму profile
 editButton.addEventListener('click', () => {
