@@ -1,3 +1,5 @@
+import {Card} from './Card.js'; 
+
 // Находим модальное окно PROFILE
 const popupElementProfile = document.querySelector('.popup_type_edit-profile')
 // Находим кнопку закрытия модального окна профиля
@@ -78,9 +80,10 @@ function handleSubmitAddCardForm(evt) {
   newCard.link = cardUrlInput.value
 
   // Вызываем функцию создания новой карточки и передаем ей новый объект на вход
-  const newCardElement = createCard(newCard)
+  const card = new Card (newCard.name, newCard.link, '#card-template', popupElementFullscreen, imageFullscreen, imageCaption, openPopup)
+  const cardElement = card.generateCard();
   // Добавляем новую карточку в начало галереи 
-  addCard(newCardElement)
+  addCard(cardElement)
 
 
   // Очищаем поля ввода
@@ -89,42 +92,6 @@ function handleSubmitAddCardForm(evt) {
 
   // При сохранении данных из формы, нужно ее закрыть
   closePopup(popupElementCard)
-}
-
-// Объявляем функцию для создания карточки
-function createCard(element) {
-  const cardElement = cardTemplateElement.cloneNode(true)
-  const cardImage = cardElement.querySelector('.gallery__image')
-
-  // Присваиваем значения атрибутам картинок
-  cardImage.src = element.link
-  cardImage.alt = element.name
-
-  // Подпись карточки
-  cardElement.querySelector('.gallery__text').textContent = element.name
-
-  // Ищем кнопку лайка, которую далее используем в колбеке нажатия на нее
-  const likeButton = cardElement.querySelector('.gallery__like')
-  // Добавляем слушатель на кнопку лайк
-  likeButton.addEventListener('click', function () {
-    likeButton.classList.toggle('gallery__like_active')
-  })
-
-  // Добавляем слушатель на кнопку удалить
-  const cardDelete = cardElement.querySelector('.gallery__delete')
-  cardDelete.addEventListener('click', (evt) => {
-    cardDelete.parentElement.remove()
-  })
-
-  // Добавляем слушатель на открытие в фуллскрин
-  cardImage.addEventListener('click', () => {
-    openPopup(popupElementFullscreen)
-    imageFullscreen.src = element.link
-    imageFullscreen.alt = element.name
-    imageCaption.textContent = element.name
-  })
-
-  return cardElement
 }
 
 function addCard(cardElement) {
@@ -199,7 +166,7 @@ closeButtonFullscreen.addEventListener('click', () => {
 
 // Проходимся по всем элементам, создаем карточки и добавляем их в галерею
 initialCards.forEach(element => {
-  const newCard = createCard(element)
-  addCard(newCard)
+  const card = new Card (element.name, element.link, '#card-template', popupElementFullscreen, imageFullscreen, imageCaption, openPopup)
+  const cardElement = card.generateCard();
+  addCard(cardElement);
 })
-
