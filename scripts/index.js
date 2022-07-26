@@ -1,4 +1,14 @@
-import {Card} from './Card.js'; 
+import { Card } from './Card.js';
+import { FormValidator } from './FormValidator.js';
+
+const data = {
+  formSelector: '.form',
+  inputSelector: '.form__input',
+  submitButtonSelector: '.form__submit',
+  inactiveButtonClass: 'form__submit_disabled',
+  inputErrorClass: 'form__input_type_error',
+  errorClass: 'form__error_visible'
+}
 
 // Находим модальное окно PROFILE
 const popupElementProfile = document.querySelector('.popup_type_edit-profile')
@@ -54,9 +64,6 @@ const popupElementFullscreen = document.querySelector('.popup_type_fs')
 // Находим кнопку закрытия модального окна card
 const closeButtonFullscreen = popupElementFullscreen.querySelector('.popup__close-button')
 
-// Находим карточку в тепмлейт, чтобы потом ее клонирвоать в функции
-const cardTemplateElement  = cardTemplate.querySelector('.gallery__card')
-
 // Обработчик «отправки» формы profile
 function handleSubmitEditProfileForm(evt) {
   evt.preventDefault(); // Эта строчка отменяет стандартную отправку формы.
@@ -80,7 +87,7 @@ function handleSubmitAddCardForm(evt) {
   newCard.link = cardUrlInput.value
 
   // Вызываем функцию создания новой карточки и передаем ей новый объект на вход
-  const card = new Card (newCard.name, newCard.link, '#card-template', popupElementFullscreen, imageFullscreen, imageCaption, openPopup)
+  const card = new Card(newCard.name, newCard.link, '#card-template', popupElementFullscreen, imageFullscreen, imageCaption, openPopup)
   const cardElement = card.generateCard();
   // Добавляем новую карточку в начало галереи 
   addCard(cardElement)
@@ -166,7 +173,14 @@ closeButtonFullscreen.addEventListener('click', () => {
 
 // Проходимся по всем элементам, создаем карточки и добавляем их в галерею
 initialCards.forEach(element => {
-  const card = new Card (element.name, element.link, '#card-template', popupElementFullscreen, imageFullscreen, imageCaption, openPopup)
+  const card = new Card(element.name, element.link, '#card-template', popupElementFullscreen, imageFullscreen, imageCaption, openPopup)
   const cardElement = card.generateCard();
   addCard(cardElement);
 })
+
+// Добавление обработчиков всем формам
+const formList = Array.from(document.querySelectorAll('.form'));
+formList.forEach((formElement) => {
+  const formValidator = new FormValidator(data, formElement);
+  formValidator.enableValidation();
+});
