@@ -109,6 +109,9 @@ function openPopup(popup) {
   // Вешаем слушатель события нажатия кнопки и клика для закрытия по Esc и клику по оверлею
   document.addEventListener('keyup', closeByEsc)
   popup.addEventListener('click', closeByClick)
+  const thisPopupForm = popup.querySelector('.form')
+  const popupValitator = new FormValidator(data, thisPopupForm)
+  popupValitator.resetValidation()
 }
 
 // Объявляем функцию закрытия попапа
