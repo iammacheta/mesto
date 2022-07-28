@@ -183,6 +183,13 @@ formList.forEach((formElement) => {
 });
 
 function createCard(newCardName, newCardLink) {
-  const card = new Card(newCardName, newCardLink, '#card-template', popupElementFullscreen, imageFullscreen, imageCaption, openPopup)
+  const card = new Card(newCardName, newCardLink, '#card-template', popupElementFullscreen, imageFullscreen, imageCaption, openPopup, handleCardClick)
   return card.generateCard();
+}
+
+function handleCardClick(name, link, popup) {
+  imageFullscreen.src = link
+  imageFullscreen.alt = name
+  imageCaption.textContent = name
+  openPopup(popup)
 }
