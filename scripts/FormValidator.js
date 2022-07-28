@@ -56,7 +56,6 @@ export class FormValidator {
         }
     }
 
-    debugger;
     // Добавление обработчиков события input всем полям формы
     _setEventListeners() {
 
@@ -69,6 +68,16 @@ export class FormValidator {
             });
         });
     };
+
+    resetValidation() {
+        this._toggleButtonState();
+
+        this._inputList.forEach((inputElement) => {
+            this._hideInputError(inputElement)
+        });
+    }
+
+
 
     enableValidation() {
         this._formElement.addEventListener('submit', function (evt) {
