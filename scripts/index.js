@@ -109,9 +109,6 @@ function openPopup(popup) {
   // Вешаем слушатель события нажатия кнопки и клика для закрытия по Esc и клику по оверлею
   document.addEventListener('keyup', closeByEsc)
   popup.addEventListener('click', closeByClick)
-  const thisPopupForm = popup.querySelector('.form')
-  const popupValitator = new FormValidator(data, thisPopupForm)
-  popupValitator.resetValidation()
 }
 
 // Объявляем функцию закрытия попапа
@@ -146,6 +143,9 @@ popupElementProfile.addEventListener('submit', handleSubmitEditProfileForm)
 // Обработка кнопки Редактировать, открываем форму profile
 editButton.addEventListener('click', () => {
   openPopup(popupElementProfile)
+  const thisPopupForm = popupElementProfile.querySelector('.form')
+  const popupValitator = new FormValidator(data, thisPopupForm)
+  popupValitator.resetValidation()
 })
 
 // Обработка кнопки крестика, закрываем форму profile
@@ -160,6 +160,9 @@ popupElementCard.addEventListener('submit', handleSubmitAddCardForm)
 // Обработка кнопки Редактировать, открываем форму рекдактирования карточки
 addButton.addEventListener('click', () => {
   openPopup(popupElementCard)
+  const thisPopupForm = popupElementCard.querySelector('.form')
+  const popupValitator = new FormValidator(data, thisPopupForm)
+  popupValitator.resetValidation()
 })
 
 // Обработка кнопки крестика, закрываем форму редактирования карточки
