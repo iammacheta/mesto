@@ -56,7 +56,6 @@ export class FormValidator {
         }
     }
 
-    debugger;
     // Добавление обработчиков события input всем полям формы
     _setEventListeners() {
 

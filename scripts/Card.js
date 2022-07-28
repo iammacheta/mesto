@@ -26,44 +26,46 @@ export class Card {
 
     generateCard() {
         this._element = this._getTemplate();
+        this._galleryImage = this._element.querySelector('.gallery__image');
+        this._galleryLike = this._element.querySelector('.gallery__like');
+        this._galleryDelete = this._element.querySelector('.gallery__delete');
         this._setEventListeners();
 
         // Присваиваем значения атрибутам картинок
-        this._element.querySelector('.gallery__image').alt = this._name;
-        this._element.querySelector('.gallery__image').src = this._link;
+        this._galleryImage.alt = this._name;
+        this._galleryImage.src = this._link;
 
         // Подпись карточки
         this._element.querySelector('.gallery__text').textContent = this._name;
 
         return this._element;
-
     }
 
     _setEventListeners() {
         // Добавляем слушатель на кнопку like
-        this._element.querySelector('.gallery__like').addEventListener('click', () => {
+        this._galleryLike.addEventListener('click', () => {
             this._handleLikeClick();
         });
 
         // Добавляем слушатель на кнопку удалить
-        this._element.querySelector('.gallery__delete').addEventListener('click', (evt) => {
+        this._galleryDelete.addEventListener('click', (evt) => {
             this._handleDeleteClick();
         });
 
         // Добавляем слушатель на открытие в фуллскрин
-        this._element.querySelector('.gallery__image').addEventListener('click', () => {
+        this._galleryImage.addEventListener('click', () => {
             this._handleFullscreenClick();
         })
     }
 
     // Ручка для кнопки лайк
     _handleLikeClick() {
-        this._element.querySelector('.gallery__like').classList.toggle('gallery__like_active');
+        this._galleryLike.classList.toggle('gallery__like_active');
     }
 
     // Ручка для удаления карточки
     _handleDeleteClick() {
-        this._element.querySelector('.gallery__delete').parentElement.remove();
+        this._galleryDelete.parentElement.remove();
     }
 
     // Ручка для открытия фулскрин

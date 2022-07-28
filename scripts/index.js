@@ -86,16 +86,13 @@ function handleSubmitAddCardForm(evt) {
   newCard.name = cardNameInput.value
   newCard.link = cardUrlInput.value
 
-  // Вызываем функцию создания новой карточки и передаем ей новый объект на вход
-  const card = new Card(newCard.name, newCard.link, '#card-template', popupElementFullscreen, imageFullscreen, imageCaption, openPopup)
-  const cardElement = card.generateCard();
+  const cardElement = createCard(newCard.name, newCard.link)
+
   // Добавляем новую карточку в начало галереи 
   addCard(cardElement)
 
-
   // Очищаем поля ввода
-  cardNameInput.value = ''
-  cardUrlInput.value = ''
+  evt.target.reset()
 
   // При сохранении данных из формы, нужно ее закрыть
   closePopup(popupElementCard)
@@ -119,6 +116,7 @@ function closePopup(popup) {
   popup.classList.remove('popup_opend')
   // При закрытии формы удаляем слушатели
   document.removeEventListener('keyup', closeByEsc)
+  popup.removeEventListener('click', closeByClick)
 }
 
 // Функция закрытия при нажатии на esc
@@ -133,7 +131,7 @@ function closeByEsc(evt) {
 function closeByClick(evt) {
   if (evt.target.classList.contains('popup_opend')) {
     const openedPopup = document.querySelector('.popup_opend')
-    closePopup(openedPopup)
+    closePopup(evt.target)
   }
 }
 
@@ -173,8 +171,7 @@ closeButtonFullscreen.addEventListener('click', () => {
 
 // Проходимся по всем элементам, создаем карточки и добавляем их в галерею
 initialCards.forEach(element => {
-  const card = new Card(element.name, element.link, '#card-template', popupElementFullscreen, imageFullscreen, imageCaption, openPopup)
-  const cardElement = card.generateCard();
+  const cardElement = createCard(element.name, element.link)
   addCard(cardElement);
 })
 
@@ -184,3 +181,8 @@ formList.forEach((formElement) => {
   const formValidator = new FormValidator(data, formElement);
   formValidator.enableValidation();
 });
+
+function createCard(newCardName, newCardLink) {
+  const card = new Card(newCardName, newCardLink, '#card-template', popupElementFullscreen, imageFullscreen, imageCaption, openPopup)
+  return card.generateCard();
+}
