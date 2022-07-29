@@ -62,6 +62,6 @@ export class Card {
 
     // Ручка для удаления карточки
     _handleDeleteClick() {
-        this._galleryDelete.parentElement.remove();
+        this._element.remove();
     }
 }
