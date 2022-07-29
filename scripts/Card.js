@@ -1,14 +1,10 @@
 export class Card {
     // Передаем в конструктор все данные необходимые для создания карточки:
     // селектор темплейта и данные для открытия фулскин + саму функцию фулскрин, как колбек
-    constructor(name, link, templateSelector, popupElementFullscreen, imageFullscreen, imageCaption, openPopup, handleCardClick) {
+    constructor(name, link, templateSelector, openPopup, handleCardClick) {
         this._name = name;
         this._link = link;
         this._templateSelector = templateSelector;
-        // Параметры для функции открытия фулскрин
-        this._popupElementFullscreen = popupElementFullscreen;
-        this._imageFullscreen = imageFullscreen;
-        this._imageCaption = imageCaption;
         // Передаем функцию для открытия фулскрин
         this._openPopup = openPopup;
         this._handleCardClick = handleCardClick;
@@ -55,7 +51,7 @@ export class Card {
 
         // Добавляем слушатель на открытие в фуллскрин
         this._galleryImage.addEventListener('click', () => {
-            this._handleCardClick(this._name, this._link, this._popupElementFullscreen);
+            this._handleCardClick(this._name, this._link);
         })
     }
 
@@ -66,6 +62,6 @@ export class Card {
 
     // Ручка для удаления карточки
     _handleDeleteClick() {
-        this._galleryDelete.parentElement.remove();
+        this._element.remove();
     }
 }
