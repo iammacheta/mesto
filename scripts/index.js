@@ -130,7 +130,6 @@ function closeByEsc(evt) {
 // Функция закрытия попапа кликом на оверлей 
 function closeByClick(evt) {
   if (evt.target.classList.contains('popup_opend')) {
-    const openedPopup = document.querySelector('.popup_opend')
     closePopup(evt.target)
   }
 }
