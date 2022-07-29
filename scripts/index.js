@@ -189,13 +189,13 @@ formList.forEach((formElement) => {
 });
 
 function createCard(newCardName, newCardLink) {
-  const card = new Card(newCardName, newCardLink, '#card-template', popupElementFullscreen, imageFullscreen, imageCaption, openPopup, handleCardClick)
+  const card = new Card(newCardName, newCardLink, '#card-template', openPopup, handleCardClick)
   return card.generateCard();
 }
 
-function handleCardClick(name, link, popup) {
+function handleCardClick(name, link) {
   imageFullscreen.src = link
   imageFullscreen.alt = name
   imageCaption.textContent = name
-  openPopup(popup)
+  openPopup(popupElementFullscreen)
 }
