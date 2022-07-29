@@ -134,7 +134,6 @@ function closeByClick(evt) {
   }
 }
 
-
 // Прикрепляем обработчик к кнопке сохранить в форме profile:
 // он будет следить за событием “submit” - «отправка»
 popupElementProfile.addEventListener('submit', handleSubmitEditProfileForm)
@@ -142,9 +141,7 @@ popupElementProfile.addEventListener('submit', handleSubmitEditProfileForm)
 // Обработка кнопки Редактировать, открываем форму profile
 editButton.addEventListener('click', () => {
   openPopup(popupElementProfile)
-  const thisPopupForm = popupElementProfile.querySelector('.form')
-  const popupValitator = new FormValidator(data, thisPopupForm)
-  popupValitator.resetValidation()
+  popupValitatorProfile.resetValidation()
 })
 
 // Обработка кнопки крестика, закрываем форму profile
@@ -159,9 +156,8 @@ popupElementCard.addEventListener('submit', handleSubmitAddCardForm)
 // Обработка кнопки Редактировать, открываем форму рекдактирования карточки
 addButton.addEventListener('click', () => {
   openPopup(popupElementCard)
-  const thisPopupForm = popupElementCard.querySelector('.form')
-  const popupValitator = new FormValidator(data, thisPopupForm)
-  popupValitator.resetValidation()
+
+  popupValitatorCard.resetValidation()
 })
 
 // Обработка кнопки крестика, закрываем форму редактирования карточки
@@ -180,12 +176,10 @@ initialCards.forEach(element => {
   addCard(cardElement);
 })
 
-// Добавление обработчиков всем формам
-const formList = Array.from(document.querySelectorAll('.form'));
-formList.forEach((formElement) => {
-  const formValidator = new FormValidator(data, formElement);
-  formValidator.enableValidation();
-});
+const popupValitatorProfile = new FormValidator(data, popupElementProfile)
+popupValitatorProfile.enableValidation()
+const popupValitatorCard = new FormValidator(data, popupElementCard)
+popupValitatorCard.enableValidation()
 
 function createCard(newCardName, newCardLink) {
   const card = new Card(newCardName, newCardLink, '#card-template', openPopup, handleCardClick)
